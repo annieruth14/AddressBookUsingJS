@@ -180,3 +180,7 @@ addressBookArr.filter(element => element.city == city)
             count++;
         });
 console.log("Number of persons present in " + city + " : "+ count);
+
+// sort the address book by persons name
+let sortedArr = addressBookArr.map(element => element.firstName).sort();
+console.log(sortedArr);
