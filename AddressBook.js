@@ -170,8 +170,13 @@ let seachPerson = prompt("Enter the person you want to search: ");
 addressBookArr.filter(element => element.firstName == seachPerson)
         .forEach(element => console.log("City: " + element.city + ", State: "+ element.state));
 
-// view person by city
+// view person by city and count
 let city = prompt("Enter the name of the city: ");
+let count = 0;
 console.log("Persons present in " + city + " is/are: ");
 addressBookArr.filter(element => element.city == city)
-        .forEach(element => console.log(element.firstName + " " + element.lastName));
+        .forEach(element => {
+            console.log(element.firstName + " " + element.lastName);
+            count++;
+        });
+console.log("Number of persons present in " + city + " : "+ count);
