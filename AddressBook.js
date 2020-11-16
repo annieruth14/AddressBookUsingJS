@@ -152,3 +152,7 @@ function deletePerson(person) {
 }
 let delPerson = findPersonByName(prompt("Enter the name you want to delete: "));
 deletePerson(delPerson);
+
+// find number of contacts
+let totalContacts = addressBookArr.reduce((total , element) => total += 1 , 0);
+console.log("Total number of contacts in the address book: " + totalContacts);
