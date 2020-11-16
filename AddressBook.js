@@ -156,3 +156,11 @@ deletePerson(delPerson);
 // find number of contacts
 let totalContacts = addressBookArr.reduce((total , element) => total += 1 , 0);
 console.log("Total number of contacts in the address book: " + totalContacts);
+
+// checking if duplicate name exists
+let newContact = new Contact("Kiran", "Bedi", "Shantinagar" , "Kurseong", "Jammu" , '786788' , '91 8944444322', "kiran456@gmail.com");
+let duplicateCheck = addressBookArr.find(element => element.firstName == newContact.firstName);
+if(duplicateCheck != null)
+    console.log("Duplicate element cannot be added");
+else
+    addressBookArr.push(newContact);
