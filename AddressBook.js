@@ -164,3 +164,9 @@ if(duplicateCheck != null)
     console.log("Duplicate element cannot be added");
 else
     addressBookArr.push(newContact);
+
+// search person by city
+let city = prompt("Enter the name of the city: ");
+console.log("Persons present in " + city + " is/are: ");
+addressBookArr.filter(element => element.city == city)
+        .forEach(element => console.log(element.firstName + " " + element.lastName));
