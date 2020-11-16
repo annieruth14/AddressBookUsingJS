@@ -182,5 +182,9 @@ addressBookArr.filter(element => element.city == city)
 console.log("Number of persons present in " + city + " : "+ count);
 
 // sort the address book by persons name
-let sortedArr = addressBookArr.map(element => element.firstName).sort();
-console.log(sortedArr);
+let sortedNameArr = addressBookArr.map(element => element.firstName).sort();
+console.log(sortedNameArr);
+
+// sort by city
+let sortedCityArr = addressBookArr.map(element => element.city).sort();
+console.log(sortedCityArr);
