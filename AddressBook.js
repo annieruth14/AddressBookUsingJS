@@ -83,4 +83,22 @@ class Contact {
             this._phoneNo = phoneNo;
         else throw "Phone number is not valid"
     }
+
+    toString() {
+        return this.firstName + " " + this.lastName + " " + this.address + " " + this.city + " " + this.state + " " + this.zip + " " + this.phoneNo + " " + this.email; 
+	}
 }
+
+let addressBookArr = new Array();
+try{
+    addressBookArr.push(new Contact("Annie", "Ruth", "NBUniversity" , "Siliguri" , "Bengal" , 789456 , '91 9989613112', "ruth3@gmail.com") ,
+        new Contact("Neha", "Clare", "Kadamtala" , "Mirik" , "Tamil Nadu" , 434567 , '91 8945613550', "neha@gmail.com") ,
+        new Contact("Kiran", "Bed", "Shantinagar" , "Kurseong" , "Arunachal" , 453366 , '91 9899946132', "kiran6@gmail.com") ,
+        new Contact("Ankita", "Sarkar", "Sevoke" , "Mirik" , "Bengal" , 874556 , '91 9894561555', "ankita2@gmail.com") ,
+        new Contact("Portia", "Das", "Silla" , "Siliguri" , "Jammu" , 786788 , '91 8944444322', "portia@gmail.com") );
+}
+catch(e) {
+    console.error(e);
+}
+
+addressBookArr.forEach(element => console.log(element.toString()));
