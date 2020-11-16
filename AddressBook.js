@@ -165,7 +165,12 @@ if(duplicateCheck != null)
 else
     addressBookArr.push(newContact);
 
-// search person by city
+// search person by city and state
+let seachPerson = prompt("Enter the person you want to search: ");
+addressBookArr.filter(element => element.firstName == seachPerson)
+        .forEach(element => console.log("City: " + element.city + ", State: "+ element.state));
+
+// view person by city
 let city = prompt("Enter the name of the city: ");
 console.log("Persons present in " + city + " is/are: ");
 addressBookArr.filter(element => element.city == city)
