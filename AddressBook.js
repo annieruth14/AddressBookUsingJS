@@ -58,7 +58,7 @@ class Contact {
         else throw "State should have minimum 4 letters"
     }
     get zip() {
-        return this._pinCode;
+        return this._zip;
     }
     set zip(zip) {
         let zipRegex = RegExp('^([\s]?[0-9]){6}$');
@@ -92,49 +92,63 @@ class Contact {
 
 let addressBookArr = new Array();
 try{
-    addressBookArr.push(new Contact("Annie", "Ruth", "NBUniversity" , "Siliguri" , "Bengal" , 789456 , '91 9989613112', "ruth3@gmail.com") ,
-        new Contact("Neha", "Clare", "Kadamtala" , "Mirik" , "Tamil Nadu" , 434567 , '91 8945613550', "neha@gmail.com") ,
-        new Contact("Kiran", "Bedi", "Shantinagar" , "Kurseong" , "Arunachal" , 453366 , '91 9899946132', "kiran6@gmail.com") ,
-        new Contact("Ankita", "Sarkar", "Sevoke" , "Mirik" , "Bengal" , 874556 , '91 9894561555', "ankita2@gmail.com") ,
-        new Contact("Portia", "Das", "Silla" , "Siliguri" , "Jammu" , 786788 , '91 8944444322', "portia@gmail.com") );
+    addressBookArr.push(new Contact("Annie", "Ruth", "NBUniversity" , "Siliguri" , "Bengal" , '789456' , '91 9989613112', "ruth3@gmail.com") ,
+        new Contact("Neha", "Clare", "Kadamtala" , "Mirik" , "Tamil Nadu" , '434567' , '91 8945613550', "neha@gmail.com") ,
+        new Contact("Kiran", "Bedi", "Shantinagar" , "Kurseong" , "Arunachal" , '453366' , '91 9899946132', "kiran6@gmail.com") ,
+        new Contact("Ankita", "Sarkar", "Sevoke" , "Mirik" , "Bengal" , '874556' , '91 9894561555', "ankita2@gmail.com") ,
+        new Contact("Portia", "Das", "Silla" , "Siliguri" , "Jammu" , '786788' , '91 8944444322', "portia@gmail.com") );
 }
 catch(e) {
     console.error(e);
 }
-
 addressBookArr.forEach(element => console.log(element.toString()));
 
+// find person by name
 function findPersonByName(name){
     let person = addressBookArr.find(element => element.firstName == name);
     return person;
 }
 
+// edit details of a person
 function editDetails(person) {
     const choice = prompt("Enter the field number you want to edit: 1. address  2. city  3.state  4.zip  5.phoneNo  6.email : ");
     const value = prompt("Enter the new value: ");
     switch(parseInt(choice)) {
         case 1:
             person.address = value;
+            console.log("Setting : \n"+ person.toString());
             break;
         case 2:
             person.city = value;
+            console.log("Setting : \n"+ person.toString());
             break;
         case 3:
             person.state = value;
+            console.log("Setting : \n"+ person.toString());
             break;
         case 4:
             person.zip = value;
+            console.log("Setting : \n"+ person.toString());
             break;
         case 5:
             person.phoneNo = value;
+            console.log("Setting : \n"+ person.toString());
             break;
         case 6:
             person.email = value;
+            console.log("Setting : \n"+ person.toString());
             break;
         default:
             console.log("Invalid choice");
     }
-    console.log("Setting : \n"+ person.toString());
 }
 let person = findPersonByName(prompt("Enter the name you want to edit: "));
 editDetails(person);
+
+// delete person
+function deletePerson(person) {
+    addressBookArr.splice(addressBookArr.indexOf(person), 1);
+    console.log(addressBookArr.toString());
+}
+let delPerson = findPersonByName(prompt("Enter the name you want to delete: "));
+deletePerson(delPerson);
